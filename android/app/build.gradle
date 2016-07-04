@@ -1,0 +1,52 @@
+apply plugin: 'com.android.application'
+
+repositories {
+    flatDir{
+        dirs 'libs'
+    }
+}
+android {
+    compileSdkVersion 23
+    buildToolsVersion "24rc4"
+
+    defaultConfig {
+        applicationId "services.male.android"
+        minSdkVersion 19
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+        jackOptions {
+            enabled true
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dexOptions {
+        incremental true
+    }
+
+    compileOptions {
+        sourceCompatibility = org.gradle.api.JavaVersion.VERSION_1_8
+        targetCompatibility = org.gradle.api.JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    compile 'com.google.code.gson:gson:2.3.1'
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile(name: 'signalr-client-sdk-android-release', ext: 'aar')
+
+
+
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    compile 'com.android.support:design:23.4.0'
+
+    //compile files('libs/java-websocket-1.3.1.jar')
+
+}

@@ -1,0 +1,12 @@
+﻿@using male.services.biz
+@using male.services.mvc
+@model List<NavigationEntry>
+
+@{
+    ViewBag.Title = "System Maintenance";
+}
+
+<h2>Maintenance</h2>
+
+@ControlHelper.RenderBreadCrumbs(Html, Model)
+@ControlHelper.Grid(Html, Model)
