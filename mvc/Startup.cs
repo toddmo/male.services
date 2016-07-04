@@ -15,19 +15,5 @@ namespace male.services
       hubConfiguration.EnableDetailedErrors = true;
       app.MapSignalR(hubConfiguration);
     }
-
-    private void TestDataModel()
-    {
-      var service = new biz.Service() { Name = "Massage", Description = "Relaxing" };//
-      service.Save();
-      var member = new biz.Member() { FirstName = "Brad", LastName = "Pitt"};//
-      member.Save();
-      //var member = biz.Member.Collection[3];//
-      var s = member.Services[20];
-      s.Name = "Companionship2";
-      member.FirstName = "Christopher";
-      member.Services.AddRange(biz.Service.Collection);
-      member.Save();
-    }
   }
 }
